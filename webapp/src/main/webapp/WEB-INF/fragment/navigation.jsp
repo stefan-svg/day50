@@ -7,6 +7,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+a{
+text-decoration: none;
+}
+</style>
 </head>
 <c:url value="/application/city/add" var="cityAdd"/>
 <c:url value="/application/city" var="cities"/>

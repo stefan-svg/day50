@@ -8,9 +8,8 @@
 <body>
 	<header>
 	<jsp:include page="/WEB-INF/fragment/login_user.jsp" flush="true"/>
+	<br>
 	<jsp:include page="/WEB-INF/fragment/navigation.jsp" flush="true"/>
 	</header>
-	
-	
 </body>
 </html>

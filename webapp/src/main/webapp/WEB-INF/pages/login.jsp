@@ -10,7 +10,7 @@
 	<meta charset="UTF-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<title>Document</title>
+  	<title>Login</title>
 
 <style>
 	body {
@@ -28,14 +28,12 @@
 }
 
 .login {
-  background-image: url("https://wallpaperaccess.com/full/31228.jpg");
+  background-image: url("https://wallpaperaccess.com/full/791.jpg");
   background-size: cover;
 }
 
 .login-container {
   padding: 1.5rem;
-  border: 1px solid #f9e9ff;
-  border-radius: 5px;
   -webkit-backdrop-filter: blur(10px) brightness(0.7);
           backdrop-filter: blur(10px) brightness(0.7);
   text-align: center;
@@ -65,7 +63,7 @@ input {
 .btn {
   cursor: pointer;
   border: none;
-  background-color: #0f0e22;
+  background-color: #14a020;
   color: #f9e9ff;
   padding: 0.5rem;
   transition: 0.1s;
@@ -75,9 +73,7 @@ input {
 .btn:active {
   transform: translateY(0);
 }
-.btn:hover {
-  background-color: #716cc3;
-}
+
 
 .input-floating {
   position: relative;
@@ -114,14 +110,6 @@ input {
 .input-floating input.invalid + label {
   color: red;
 }
-.input-floating label {
-  color: #0f0e22;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0.5rem;
-  transition: 0.2s;
-}
 </style>
 </head>
 <body class="flex-center h-cover login">
@@ -129,20 +117,15 @@ input {
 		<div>${error_message}</div>
 		<form action="/testwebapp/application/login" method="post">
 		<div class="input input-floating">
-			<input type="text" name="username" id="username" placeholder=" ">
-			<label for="username" class="floating-label">Username</label>
+			<input type="text" name="username" id="username" placeholder="Username">
 		</div>
 		<div class="input input-floating">
-			<input type="password" name="password" id="password" placeholder=" ">
-			<label for="password" class="floating-label">Password</label>
+			<input type="password" name="password" id="password" placeholder="Password">
 		</div>
 		<div class="input">
-			
-				<input type="submit" value="login" name="login" class="btn" id="login">
-			
+				<input type="submit" value="Login" name="login" class="btn" id="login">
 		</div>
 		</form>
 	</div>
-	
 </body>
 </html>
