@@ -15,32 +15,35 @@
 	</header>
 
 	<main>
-		<h2>Trenutni podaci o proizvodjacu</h2>
+		<h2>Dodaj proizvodjaca</h2>
 
 		<article>
 			<div>
-				<form  action="/testwebapp/application/manufacturer/edit?pib=${manufacturer.pib}" method="post">
+				<form action="/testwebapp/application/manufacturer/add" method="post">
 					<div>
 						${error_message}
 					</div>
 					<label>PIB</label>
-					<input type="text" name="pib" value="${manufacturer.pib}" readonly="readonly"/>
+					<input type="text" name="pib" value="${manufacturer.pib}" />
 					<label>Maticni broj</label>
-					<input type="text" name="matbr" value="${manufacturer.matbr}" readonly="readonly"/>
+					<input type="text" name="matbr" value="${manufacturer.matbr}" />
 					<label>Adresa</label>
-					<input type="text" name="adresa" value="${manufacturer.adresa}" readonly="readonly"/>
+					<input type="text" name="adresa" value="${manufacturer.adresa}" />
 					<label>Grad</label>
-					<input type="text" name="grad" value="${manufacturer.city.name}" readonly="readonly"/>
+					<input type="text" name="zipcode" value="${manufacturer.city.zipCode}" />
 					<div>
-						<input type="submit" name="edit" value="edit"/>
+						<input type="submit" name="add" value="add"/>
 					</div>
 
 				</form>
-				<form action="/testwebapp/application/manufacturer/cancel" method="post">
+				
+				<form action="/webapprecap/application/manufacturer/cancel" method="post">
 					<div>
 						<input type="submit" name="cancel" value="cancel"/>
 					</div>
 				</form>
+				
+				
 			</div>
 
 		</article>

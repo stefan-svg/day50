@@ -16,5 +16,11 @@ public interface WebConstants {
 	public static final String PAGE_MANUFACTURER_VIEW="/WEB-INF/pages/manufacturer/manufacturer_view.jsp";
 	public static final String PATH_MANUFACTURER_VIEW="/manufacturer/view";
 	
+	public static final String PAGE_MANUFACTURER_SAVE="/WEB-INF/pages/manufacturer/manufacturer_add.jsp";
+	public static final String PATH_MANUFACTURER_SAVE="/manufacturer/save";
+	
+	public static final String PAGE_MANUFACTURER_ADD="/WEB-INF/pages/manufacturer/manufacturer_add.jsp";
+	public static final String PATH_MANUFACTURER_ADD="/manufacturer/add";
+	
 	
 }
