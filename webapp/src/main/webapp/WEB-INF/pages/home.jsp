@@ -6,11 +6,11 @@
 
 <html>
 <body>
-	<h2>Dobro dosli na nasu demo aplikaciju</h2>
+	<header>
+	<jsp:include page="/WEB-INF/fragment/login_user.jsp" flush="true"/>
+	<jsp:include page="/WEB-INF/fragment/navigation.jsp" flush="true"/>
+	</header>
 	
-	<div>
-		<c:url value="/application/login" var="urlLogin"/>
-		<a href="${urlLogin}">Prijavi se</a>
-	</div>
+	
 </body>
 </html>
