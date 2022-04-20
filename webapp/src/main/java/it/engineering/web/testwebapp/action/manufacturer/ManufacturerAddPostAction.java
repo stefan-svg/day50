@@ -24,6 +24,13 @@ public class ManufacturerAddPostAction extends AbstractAction{
 			return WebConstants.PAGE_MANUFACTURER_ADD;
 		}
 		
+		if(request.getParameter("pib")=="" || request.getParameter("matbr")=="" || request.getParameter("adresa")=="") {
+			request.setAttribute("error_message", "Popunite sva polja!");
+			request.setAttribute("cities", CityRepository.getAll());
+		return WebConstants.PAGE_MANUFACTURER_ADD;
+		}
+		
+		
 		Manufacturer manufacturer = new Manufacturer(Integer.parseInt(request.getParameter("pib")),
 				Integer.parseInt(request.getParameter("matbr")),request.getParameter("adresa"),city);
 		

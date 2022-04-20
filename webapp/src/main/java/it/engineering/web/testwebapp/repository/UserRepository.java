@@ -15,15 +15,6 @@ public class UserRepository {
 		EntityManager em = MyEntityManagerFactory
 				.getEntityManagerFactory()
 				.createEntityManager();
-		//JPQL
-/*		List<User> users = em
-				.createQuery("select u from User u",User.class)
-				.getResultList();
-		
-		users = em.createNamedQuery("User.findAll", User.class)
-				.getResultList();
-		*/
-		//SQL upit, native query
 		List<User> users = em.createNativeQuery("select * from user",User.class)
 				.getResultList();
 

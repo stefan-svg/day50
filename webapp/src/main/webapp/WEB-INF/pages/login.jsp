@@ -28,7 +28,7 @@
 }
 
 .login {
-  background-image: url("https://wallpaperaccess.com/full/791.jpg");
+  background-image: url("https://wallpaperaccess.com/full/51381.jpg");
   background-size: cover;
 }
 
@@ -66,12 +66,9 @@ input {
   background-color: #14a020;
   color: #f9e9ff;
   padding: 0.5rem;
-  transition: 0.1s;
   border-radius: 5px;
-  transform: translateY(-3px);
-}
-.btn:active {
-  transform: translateY(0);
+  letter-spacing:2px;
+  font-size:1.6rem;
 }
 
 

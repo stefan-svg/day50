@@ -27,7 +27,6 @@ public class ManufacturerRepository {
 				.createEntityManager();
 		
 		em.getTransaction().begin();
-		//dodaj proizvodjaca
 		Manufacturer contextManufacturer = em.merge(manufacturer);
 		em.flush();
 		System.out.println(contextManufacturer);
@@ -56,7 +55,6 @@ public class ManufacturerRepository {
 	}
 
 
-	
 	public static void delete(Manufacturer manufacturer) {
 		EntityManager em=MyEntityManagerFactory.getEntityManagerFactory().createEntityManager();
 		Manufacturer currentManufacturer= em.find(Manufacturer.class, manufacturer.getPib());
@@ -67,6 +65,7 @@ public class ManufacturerRepository {
 		em.close();
 		
 	}
+	
 	
 	
 }

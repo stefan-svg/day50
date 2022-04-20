@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Prikaz proizvodjaca</title>
+<title>Prikaz svih gradova</title>
+
 <style>
 .container {
 	display: flex;
@@ -32,39 +33,32 @@ th {
 
 </style>
 </head>
-
 <body>
-
 	<header>
-	
 		<jsp:include page="/WEB-INF/fragment/navigation.jsp" flush="true" />
 		<jsp:include page="/WEB-INF/fragment/login_user.jsp" flush="true" />
 	</header>
 
-
-<div class="container">
-		<h2>Svi proizvodjaci registrovani u sistemu</h2>
+	
+			<div class="container">
+		<h2>Svi gradovi registrovani u sistemu</h2>
 				<table>
 					<thead>
 						<tr>
-							<th>Pib</th>
-							<th>Maticni broj</th>
-							<th>Adresa</th>
-							<th>Grad</th>
+							<th>Ptt</th>
+							<th>Ime</th>
 							<th>Akcija</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="manufacturer" items="${manufacturers}">
+						<c:forEach var="city" items="${cities}">
 						<tr>
-							<th>${manufacturer.pib}</th>
-							<th>${manufacturer.matbr}</th>
-							<th>${manufacturer.adresa}</th>
-							<th>${manufacturer.city.name}</th>
+							<th>${city.zipCode}</th>
+							<th>${city.name}</th>
 							<th>
-								<a href="/testwebapp/application/manufacturer/view?pib=${manufacturer.pib}">View manufacturer</a>
+								<a href="/testwebapp/application/city/view?zipCode=${city.zipCode}">View city</a>
 								<br>
-								<a href="/testwebapp/application/manufacturer/delete?pib=${manufacturer.pib}">Delete manufacturer</a>
+								<a href="/testwebapp/application/city/delete?zipCode=${city.zipCode}">Delete city</a>
 							</th>
 						</tr>
 						</c:forEach>

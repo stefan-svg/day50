@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import it.engineering.web.testwebapp.domain.City;
+import it.engineering.web.testwebapp.domain.Manufacturer;
 import it.engineering.web.testwebapp.persistence.MyEntityManagerFactory;
 
 public class CityRepository {
@@ -57,6 +58,15 @@ public class CityRepository {
 	public static void delete(City city) {
 		EntityManager em=MyEntityManagerFactory.getEntityManagerFactory().createEntityManager();
 		City currentCity= em.find(City.class, city.getZipCode());
+		List<Manufacturer> manufacturers = ManufacturerRepository.getAll();
+		
+		for(Manufacturer m:manufacturers) {
+				if(m.getCity().equals(currentCity)) {
+					m.setCity(null);
+				ManufacturerRepository.delete(m);
+				}
+		}
+		
 		em.getTransaction().begin();
 		em.remove(currentCity);
 		em.flush();

@@ -1,6 +1,5 @@
 package it.engineering.web.testwebapp.action.manufacturer;
 
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,23 +10,22 @@ import it.engineering.web.testwebapp.constants.WebConstants;
 import it.engineering.web.testwebapp.domain.Manufacturer;
 import it.engineering.web.testwebapp.repository.ManufacturerRepository;
 
-public class ManufacturerSaveAction extends AbstractAction{
+public class ManufacturerDeleteAction  extends AbstractAction{
+
 	@Override
 	public String executeRequest(HttpServletRequest request, HttpServletResponse response) {
+		Manufacturer manufacturer = getManufacturer(Integer.parseInt(request.getParameter("pib")));
 		List<Manufacturer> manufacturers = ManufacturerRepository.getAll();
 		
-		Manufacturer manufacturer = getManufacturer(Integer.parseInt(request.getParameter("pib")));
 		for(Manufacturer m:manufacturers) {
 			if(manufacturer.getPib()==m.getPib()) {
-				m.setMatbr(Integer.parseInt(request.getParameter("matbr")));
-				m.setAdresa(request.getParameter("adresa"));
-				ManufacturerRepository.saveOrUpdate(m);
+				break;
 			}
 		}
-		
+		manufacturers.remove(manufacturer);
+		ManufacturerRepository.delete(manufacturer);
 		request.setAttribute("manufacturers", manufacturers);
 		return WebConstants.PAGE_MANUFACTURERS;
-
 	}
 	
 	private Manufacturer getManufacturer(Integer pib) {
@@ -38,5 +36,4 @@ public class ManufacturerSaveAction extends AbstractAction{
 		}
 		return null;
 	}
-
 }

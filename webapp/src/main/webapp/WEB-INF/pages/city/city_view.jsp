@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Prikaz proizvodjaca</title>
+<title>Prikaz grada</title>
 <style>
 .container {
 	display: flex;
@@ -34,22 +34,22 @@
 	font-size: 1.6rem;
 }
 
-.form input[type="submit"] {
-cursor: pointer;
+.edit input {
+height: 2.5rem;
+	cursor: pointer;
   border: none;
   background-color: #14a020;
   color: #f9e9ff;
   padding: 0.5rem;
   border-radius: 5px;
-  letter-spacing:3px;
+  letter-spacing:2px;
   font-size:1.6rem;
-  margin-top: 2%;
-  width:6rem;
+  margin-top: 13%;
 }
 
 .cancel input {
-  height: 2.5rem;
-  cursor: pointer;
+height: 2.5rem;
+	cursor: pointer;
   border: none;
   background-color: #F54949;
   color: #f9e9ff;
@@ -57,9 +57,8 @@ cursor: pointer;
   border-radius: 5px;
   letter-spacing:2px;
   font-size:1.6rem;
-  margin-top: 2%;
+  margin-top: 13%;
 }
-
 </style>
 </head>
 <body>
@@ -67,27 +66,30 @@ cursor: pointer;
 		<jsp:include page="/WEB-INF/fragment/navigation.jsp" flush="true" />
 		<jsp:include page="/WEB-INF/fragment/login_user.jsp" flush="true" />
 	</header>
+
 	<div class="container">
-		<h2>Trenutni podaci o proizvodjacu</h2>
-			<div class="form-container">
-				<form class="form"  action="/testwebapp/application/manufacturer/edit?pib=${manufacturer.pib}" method="post">
-					<div>
-						${error_message}
-					</div>
-					<label>PIB</label>
-					<input type="text" name="pib" value="${manufacturer.pib}" readonly="readonly"/>
-					<label>Maticni broj</label>
-					<input type="text" name="matbr" value="${manufacturer.matbr}" readonly="readonly"/>
-					<label>Adresa</label>
-					<input type="text" name="adresa" value="${manufacturer.adresa}" readonly="readonly"/>
-					<label>Grad</label>
-					<input type="text" name="grad" value="${manufacturer.city.name}" readonly="readonly"/>
-					<input type="submit" name="edit" value="edit"/>
+		<h2>Trenutni podaci o gradu</h2>
+		<div class="form-container">
+				<form class="form">
+					<label>Postanski broj</label>
+					<input type="text" name="zipCode" value="${city.zipCode}" readonly="readonly"/>
+					
+					<label>Naziv</label>
+					<input type="text" name="name" value="${city.name}" readonly="readonly"/>
+					
 				</form>
-				<form class="cancel" action="/testwebapp/application/manufacturer/cancel" method="post">
+				<form class="edit" action="/testwebapp/application/city/edit?zipCode=${city.zipCode}" method="post">
+					<div >
+						<input type="submit" name="edit" value="edit"/>
+					</div>
+				</form>	
+				
+				<form class="cancel" action="/testwebapp/application/city/cancel" method="post">
+					<div >
 						<input type="submit" name="cancel" value="cancel"/>
+					</div>
 				</form>
 			</div>
-		</div>
+	</div>
 </body>
 </html>
